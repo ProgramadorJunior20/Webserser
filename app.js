@@ -15,27 +15,30 @@ hbs.registerPartials( __dirname + '/views/partials',  (err) => console.log(err) 
 app.use( express.static('public') )
 
 
-app.get('/', async (req, res) => {
-    await res.render('home', {
-        nombre: 'Jefferson   Murillo',
-        titulo: 'Curso de Node'
-    })
-})
+//app.get('/', async (req, res) => {
+//    await res.render('home', {
+//        nombre: 'Jefferson   Murillo',
+//        titulo: 'Curso de Node'
+//    })
+//})
 
-app.get('/generic', async (req, res) => {
-    await res.render('generic', {
-        nombre: 'Jefferson   Murillo',
-        titulo: 'Curso de Node'
-    })
-})
+//app.get('/generic', async (req, res) => {
+//    await res.render('generic', {
+//        nombre: 'Jefferson   Murillo',
+//        titulo: 'Curso de Node'
+//    })
+//})
 
-app.get('/elements', async (req, res) => {
-    await res.render('elements', {
-        nombre: 'Jefferson   Murillo',
-        titulo: 'Curso de Node'
-    })
-})
+//app.get('/elements', async (req, res) => {
+//    await res.render('elements', {
+//        nombre: 'Jefferson   Murillo',
+//        titulo: 'Curso de Node'
+//    })
+//})
 
+app.get('*', (req, res) => {
+    res.sendFile( __dirname + '/public/index.html')
+})
 
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
